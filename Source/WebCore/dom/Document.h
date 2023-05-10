@@ -1777,6 +1777,8 @@ public:
 
     virtual void didChangeViewSize() { }
 
+    bool isNavigationBlockedByThirdPartyIFrameRedirectBlocking(LocalFrame& targetFrame, const URL& destinationURL);
+
 protected:
     enum class ConstructionFlag : uint8_t {
         Synthesized = 1 << 0,
@@ -1880,7 +1882,6 @@ private:
     void didLoadResourceSynchronously(const URL&) final;
 
     bool canNavigateInternal(LocalFrame& targetFrame);
-    bool isNavigationBlockedByThirdPartyIFrameRedirectBlocking(LocalFrame& targetFrame, const URL& destinationURL);
 
 #if USE(QUICK_LOOK)
     bool shouldEnforceQuickLookSandbox() const;
